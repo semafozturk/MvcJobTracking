@@ -1,0 +1,46 @@
+﻿@using DXTreelist0904.Models
+@model Kategoriler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Kategori Sil</h4>
+        </div>
+        @if (ViewBag.katSonuc != null)
+            {
+            <br />
+            <div class="alert alert-danger small" role="alert">@Html.Raw(ViewBag.katSonuc)</div>
+            }
+@using (Html.BeginForm())
+            {
+        <div class="modal-body">
+
+            <h2>Üye Sil</h2>
+            <p>Aşağıdaki kategori tanımını silmek istediğinize emin misiniz?</p>
+
+            <table>
+                <tr>
+                    <td><b>Kategori Tanım : </b></td>
+                    <td>@Model.kategoriAdi</td>
+                </tr>
+            </table>
+            
+            <br />
+        </div>
+
+
+        <div class="modal-footer">
+            <input type="submit" value="Sil" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+            }
+    </div>
+
+</div>

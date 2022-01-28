@@ -1,0 +1,58 @@
+﻿@using DXTreelist0904.Models
+@model Adminler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Admin Düzenle</h4>
+        </div>
+        @if (ViewBag.adminSonuc != null)
+            {
+            <br />
+                <div class="alert alert-danger small" role="alert">@Html.Raw(ViewBag.adminSonuc)</div>
+        }
+        <div class="modal-body">
+
+            <h2>Üye Sil</h2>
+            <p>Aşağıdaki üye kaydını silmek istediğinize emin misiniz?</p>
+
+            <table>
+                <tr>
+                    <td><b>Ad Soyad : </b></td>
+                    <td>@Model.AdminAdSoyad</td>
+                </tr>
+                <tr>
+                    <td><b>Görev : </b></td>
+                    <td>@Model.AdminGorev</td>
+                </tr>
+                <tr>
+                    <td><b>Bölüm : </b></td>
+                    <td>@Model.AdminBolum</td>
+                </tr>
+            </table>
+
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(x => x.AdminId)
+                <div class="input-group">
+                    <input type="submit" value="Sil" class="btn btn-primary" />
+                </div>
+            }
+            <br />
+        </div>
+
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+
+</div>

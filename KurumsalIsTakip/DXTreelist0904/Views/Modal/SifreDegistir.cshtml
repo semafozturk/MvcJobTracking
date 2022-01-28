@@ -1,0 +1,62 @@
+﻿@using DXTreelist0904.Models
+@model Adminler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Admin Düzenle</h4>
+        </div>
+
+        <div class="modal-body">
+
+          @using (Html.BeginForm())
+          {
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Mevcut Şifreniz : </span>
+                <input type="password" aria-describedby="basic-addon1" placeholder="Mevcut Şifre" class="form-control" id="eskiSifre" name="eskiSifre">
+               @Html.ValidationMessageFor(x => x.AdminSifre, "", new { @class = "text-danger" })
+            </div>
+           <br />
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Yeni Sifreniz : </span>
+                @Html.PasswordFor(x => x.AdminSifre, new { @class = "form-control", placeholder = "Yeni Şifre", aria_describedby = "basic-addon1" })
+           </div>
+
+                
+          <br />
+       // <a href="#" class="btn btn-primary btn-xs" onclick="openModal($(this), '/Modal/SifreDegistir?adminID=@Model.AdminId');">Değiştir</a>
+
+              
+                <div class="input-group">
+                    <input type="submit" value="Değiştir" class="btn btn-primary btn-sm">
+                </div>
+            <div class="input-group">
+                @if (ViewBag.Durum != null)
+                {
+                    <div class="alert alert-@ViewBag.Alert" role="alert">@ViewBag.Durum</div>
+                }
+            </div>
+          }
+
+            <br />
+        </div>
+
+
+        <div class="modal-footer">
+            <a href="#" class="btn btn-info btn-sm"
+   onclick="openModal($(this), '/Modal/Bilgilerim');">Geri Dön</a>
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Kapat</button>
+            
+        </div>
+
+    </div>
+
+</div>

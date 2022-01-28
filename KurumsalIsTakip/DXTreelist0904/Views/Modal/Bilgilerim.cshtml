@@ -1,0 +1,58 @@
+﻿@using DXTreelist0904.Models
+@model Adminler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Bilgilerim</h4>
+        </div>
+
+        <div class="modal-body">
+            <table cellpadding="5">
+                <tr>
+                    <td width="150px" style="text-align:right;"><b>Ad Soyad &nbsp;: </b></td>
+                    <td>&nbsp;&nbsp; @Model.AdminAdSoyad</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><b>Kullanıcı Adı &nbsp;: </b></td>
+                    <td>&nbsp;&nbsp; @Model.AdminKAdi</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><b>Şifre &nbsp;: </b></td>
+                    <td>
+                        &nbsp;&nbsp; @for (int i = 0; i < Model.AdminSifre.Length; i++)
+                        {
+                            <span>*</span>
+                        }
+                        &nbsp;&nbsp;&nbsp;&nbsp; 
+                        <a href="#" class="btn btn-primary btn-xs" onclick="openModal($(this), '/Modal/SifreDegistir?adminID=@Model.AdminId');">Değiştir</a>
+                      </td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><b>Görevi &nbsp;: </b></td>
+                    <td>&nbsp;&nbsp; @Model.AdminGorev</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;"><b>Bölümü &nbsp;: </b></td>
+                    <td>&nbsp;&nbsp; @Model.AdminBolum</td>
+                </tr>
+            </table>
+
+            <br />
+        </div>
+
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ResimGoster</title>
+</head>
+<body>
+    <div> 
+        <img src="/Dosyalar/1056_2018_03_19_09;36posterler-arka-plan.jpg"/>
+        <br />
+        <a href="#" download="/Dosyalar/1056_2018_03_19_09;36posterler-arka-plan.jpg" ><span style="padding:10px;background-color:darkcyan;color:white;border-radius:3px;text-decoration:none;">Resmi İndir</span></a>
+    </div>
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"60dd8e6ebe114e3babdfb863b08bd523"}
+</script>
+<script type="text/javascript" src="http://localhost:55761/6652c93840a14772a7f215ef8c42d794/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
+</body>
+</html>

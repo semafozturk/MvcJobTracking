@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KurumsalIsTakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aciliyetler">
+    <Key>
+      <PropertyRef Name="AcilId" />
+    </Key>
+    <Property Name="AcilId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AciliyetTanim" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AdminTalepler" Relationship="Self.FK_AdminTalepler_Aciliyetler" FromRole="Aciliyetler" ToRole="AdminTalepler" />
+  </EntityType>
+  <EntityType Name="Adminler">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminKAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AdminSifre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AdminAdSoyad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AdminGorev" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AdminBolum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Yetki" Type="Int32" />
+    <NavigationProperty Name="AdminTalepler" Relationship="Self.FK_AdminTalepler_Adminler" FromRole="Adminler" ToRole="AdminTalepler" />
+    <NavigationProperty Name="TalepDetaylar" Relationship="Self.FK_TalepDetaylar_Adminler" FromRole="Adminler" ToRole="TalepDetaylar" />
+  </EntityType>
+  <EntityType Name="AdminTalepler">
+    <Key>
+      <PropertyRef Name="TalepId" />
+    </Key>
+    <Property Name="TalepId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yanitId" Type="Int32" />
+    <Property Name="TalepTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Baslik" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IsTanim" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IsYuzde" Type="Int32" />
+    <Property Name="TalepDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDurumu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IseBaslananTarih" Type="DateTime" Precision="3" />
+    <Property Name="TahminiBitisTarihi" Type="DateTime" Precision="3" />
+    <Property Name="TerminGunu" Type="Int32" />
+    <Property Name="HarcananSure" Type="Double" />
+    <Property Name="adminId" Type="Int32" />
+    <Property Name="kategoriId" Type="Int32" />
+    <Property Name="acilId" Type="Int32" />
+    <NavigationProperty Name="Aciliyetler" Relationship="Self.FK_AdminTalepler_Aciliyetler" FromRole="AdminTalepler" ToRole="Aciliyetler" />
+    <NavigationProperty Name="Adminler" Relationship="Self.FK_AdminTalepler_Adminler" FromRole="AdminTalepler" ToRole="Adminler" />
+    <NavigationProperty Name="Kategoriler" Relationship="Self.FK_AdminTalepler_Kategoriler" FromRole="AdminTalepler" ToRole="Kategoriler" />
+    <NavigationProperty Name="Dosyalar" Relationship="Self.FK_Dosyalar_AdminTalepler" FromRole="AdminTalepler" ToRole="Dosyalar" />
+    <NavigationProperty Name="TalepDetaylar" Relationship="Self.FK_TalepDetaylar_AdminTalepler" FromRole="AdminTalepler" ToRole="TalepDetaylar" />
+  </EntityType>
+  <EntityType Name="Dosyalar">
+    <Key>
+      <PropertyRef Name="DosyaId" />
+    </Key>
+    <Property Name="DosyaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="talepId" Type="Int32" />
+    <Property Name="DosyaYolu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DosyaAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="uzanti" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AdminTalepler" Relationship="Self.FK_Dosyalar_AdminTalepler" FromRole="Dosyalar" ToRole="AdminTalepler" />
+  </EntityType>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="kategoriId" />
+    </Key>
+    <Property Name="kategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kategoriAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AdminTalepler" Relationship="Self.FK_AdminTalepler_Kategoriler" FromRole="Kategoriler" ToRole="AdminTalepler" />
+  </EntityType>
+  <EntityType Name="TalepDetaylar">
+    <Key>
+      <PropertyRef Name="tDetayId" />
+    </Key>
+    <Property Name="tDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DetayTarih" Type="DateTime" Precision="3" />
+    <Property Name="DetayTanim" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="adminId" Type="Int32" />
+    <Property Name="talepId" Type="Int32" />
+    <NavigationProperty Name="Adminler" Relationship="Self.FK_TalepDetaylar_Adminler" FromRole="TalepDetaylar" ToRole="Adminler" />
+    <NavigationProperty Name="AdminTalepler" Relationship="Self.FK_TalepDetaylar_AdminTalepler" FromRole="TalepDetaylar" ToRole="AdminTalepler" />
+  </EntityType>
+  <Association Name="FK_AdminTalepler_Aciliyetler">
+    <End Role="Aciliyetler" Type="Self.Aciliyetler" Multiplicity="0..1" />
+    <End Role="AdminTalepler" Type="Self.AdminTalepler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aciliyetler">
+        <PropertyRef Name="AcilId" />
+      </Principal>
+      <Dependent Role="AdminTalepler">
+        <PropertyRef Name="acilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdminTalepler_Adminler">
+    <End Role="Adminler" Type="Self.Adminler" Multiplicity="0..1" />
+    <End Role="AdminTalepler" Type="Self.AdminTalepler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adminler">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="AdminTalepler">
+        <PropertyRef Name="adminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalepDetaylar_Adminler">
+    <End Role="Adminler" Type="Self.Adminler" Multiplicity="0..1" />
+    <End Role="TalepDetaylar" Type="Self.TalepDetaylar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adminler">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="TalepDetaylar">
+        <PropertyRef Name="adminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdminTalepler_Kategoriler">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+    <End Role="AdminTalepler" Type="Self.AdminTalepler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="kategoriId" />
+      </Principal>
+      <Dependent Role="AdminTalepler">
+        <PropertyRef Name="kategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dosyalar_AdminTalepler">
+    <End Role="AdminTalepler" Type="Self.AdminTalepler" Multiplicity="0..1" />
+    <End Role="Dosyalar" Type="Self.Dosyalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminTalepler">
+        <PropertyRef Name="TalepId" />
+      </Principal>
+      <Dependent Role="Dosyalar">
+        <PropertyRef Name="talepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalepDetaylar_AdminTalepler">
+    <End Role="AdminTalepler" Type="Self.AdminTalepler" Multiplicity="0..1" />
+    <End Role="TalepDetaylar" Type="Self.TalepDetaylar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminTalepler">
+        <PropertyRef Name="TalepId" />
+      </Principal>
+      <Dependent Role="TalepDetaylar">
+        <PropertyRef Name="talepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KurumsalIsTakipEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aciliyetler" EntityType="Self.Aciliyetler" />
+    <EntitySet Name="Adminler" EntityType="Self.Adminler" />
+    <EntitySet Name="AdminTalepler" EntityType="Self.AdminTalepler" />
+    <EntitySet Name="Dosyalar" EntityType="Self.Dosyalar" />
+    <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+    <EntitySet Name="TalepDetaylar" EntityType="Self.TalepDetaylar" />
+    <AssociationSet Name="FK_AdminTalepler_Aciliyetler" Association="Self.FK_AdminTalepler_Aciliyetler">
+      <End Role="Aciliyetler" EntitySet="Aciliyetler" />
+      <End Role="AdminTalepler" EntitySet="AdminTalepler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdminTalepler_Adminler" Association="Self.FK_AdminTalepler_Adminler">
+      <End Role="Adminler" EntitySet="Adminler" />
+      <End Role="AdminTalepler" EntitySet="AdminTalepler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalepDetaylar_Adminler" Association="Self.FK_TalepDetaylar_Adminler">
+      <End Role="Adminler" EntitySet="Adminler" />
+      <End Role="TalepDetaylar" EntitySet="TalepDetaylar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdminTalepler_Kategoriler" Association="Self.FK_AdminTalepler_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="AdminTalepler" EntitySet="AdminTalepler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dosyalar_AdminTalepler" Association="Self.FK_Dosyalar_AdminTalepler">
+      <End Role="AdminTalepler" EntitySet="AdminTalepler" />
+      <End Role="Dosyalar" EntitySet="Dosyalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalepDetaylar_AdminTalepler" Association="Self.FK_TalepDetaylar_AdminTalepler">
+      <End Role="AdminTalepler" EntitySet="AdminTalepler" />
+      <End Role="TalepDetaylar" EntitySet="TalepDetaylar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

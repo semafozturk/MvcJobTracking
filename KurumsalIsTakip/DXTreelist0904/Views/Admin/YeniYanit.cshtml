@@ -1,0 +1,94 @@
+﻿@using DXTreelist0904.Models
+@model AdminTalepler
+
+@{
+    ViewBag.Title = "Yeni Yanıt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h3>&nbsp;&nbsp; Yeni Yanıt Ekle</h3>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.TalepId)
+
+    <div class="form-horizontal">
+        <div class="kutu" style="height:auto;float:left;width:400px;">
+            <b><span class="glyphicon glyphicon-user"></span>  @Model.Adminler.AdminAdSoyad</b> <br /><br />
+            <b>Talebi : </b> @(Model.IsTanim) <br />
+        </div>
+        <!-- ------------İŞ DURUMU DÜZENLEME ------------ -->
+        @if (Session["OturumYetki"].ToString() == "1")
+        {
+            <div class="kutu" style="height:auto;width:400px;float:left;">
+                <b><span class="glyphicon glyphicon-edit"></span> İş Durumunu Düzenle</b> <br /><br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="yuzde">% </span>
+                    <div class="col-md-5" style="margin-left:-15px;">
+                    <!-- İş yüzde -->
+                        @Html.TextBoxFor(x => x.IsYuzde, new { @type = "number", @class = "form-control" })
+                    </div>  @Html.ValidationMessageFor(x => x.IsYuzde, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="ddlDurum">İş Durumu </span>
+                        <div class="col-md-10" style="margin-left:-15px;">
+                            @Html.DropDownListFor(model => model.IsDurumu,
+                    new[]
+                    {
+                       new SelectListItem {Text="Beklemede",Value="Beklemede" },
+                       new SelectListItem {Text="Başlamış",Value="Başlamış" },
+                       new SelectListItem {Text="Tamamlandı", Value="Tamamlandı" },
+                       new SelectListItem {Text="İptal Edildi", Value="İptal Edildi" }
+                     }
+                   , new { @class = "form-control" })
+                        </div>  @Html.ValidationMessageFor(model => model.IsDurumu, "", new { @class = "text-danger" })
+                    </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="txtSifre">Termin Günü </span>
+                    <div class="col-md-5" style="margin-left:-15px;">
+                        @Html.TextBoxFor(model => model.TerminGunu, new { @type = "number", step = ",0", @class = "form-control" })
+                    </div>  @Html.ValidationMessageFor(model => model.TerminGunu, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="txtSure">Harcanan Süre </span>
+                    <div class="col-md-5" style="margin-left:-15px;">
+                       <input type="text" class="form-control" id="hSure" name="hSure"/>
+                   @*  @Html.TextBoxFor(model => model.HarcananSure, new { @type = "number", step = ",0", @class = "form-control" })*@
+                    </div>  @Html.ValidationMessageFor(model => model.HarcananSure, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        <!-- ------------İŞ DURUMU DÜZENLEME ------------ -->
+
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div style="clear:both;"></div>
+        <div class="form-group" style="float:left;">
+            <br />
+            @Html.Label("Yanıtınız : ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                    <textarea cols="75" class="form-control" id="DetayTanim" name="DetayTanim" rows="5"></textarea>
+
+</div>
+        </div>
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yanıtla" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div class="input-group">
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-@ViewBag.Status" role="alert">@ViewBag.Result</div>
+    }
+</div>
+

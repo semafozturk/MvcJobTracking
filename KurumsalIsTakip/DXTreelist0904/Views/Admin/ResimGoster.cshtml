@@ -1,0 +1,22 @@
+﻿@model DXTreelist0904.Models.Dosyalar
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Resim</title>
+</head>
+<body>
+    <div style="float:left;"> 
+        <img src="@Url.Content(Model.DosyaYolu)" width="850"/>
+        <br />
+    </div>
+    <div style="float:left;margin-left:100px; margin-top:50px;">
+        <a href="" download="@Url.Content(Model.DosyaYolu)"><span style="padding:10px;background-color:darkcyan;color:white;border-radius:3px;text-decoration:none;">Resmi İndir</span></a>
+    </div>
+</body>
+</html>

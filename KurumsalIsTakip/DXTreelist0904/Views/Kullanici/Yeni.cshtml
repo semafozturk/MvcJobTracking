@@ -1,0 +1,49 @@
+﻿@using DXTreelist0904.Models
+@model  AdminTalepler
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Yeni", "Kullanici", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <h2>Yeni Talep Ekleme</h2>
+
+
+    <div class="input-group">
+        @*@Html.HiddenFor(x => x.IsDurumu)*@
+        @Html.HiddenFor(x => x.IsDurumu)
+        @Html.HiddenFor(x => x.TalepTarihi)
+        <span class="input-group-addon" id="ddlKat">Kategori : </span>
+        @Html.DropDownListFor(x => x.Kategoriler.kategoriId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control", aria_describedby = "basic-addon1" })
+    </div>
+    <br />
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtBaslik">Başlık</span>
+        @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", placeholder = "İş için uygun başlık giriniz", aria_describedby = "basic-addon1" })
+    </div>
+    <br />
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtIsTanim">İş Tanım</span>
+        @Html.TextAreaFor(x => x.IsTanim, 4, 100, new { @class = "form-control", placeholder = "İş Tanım", aria_describedby = "basic-addon1" })
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="ddlAcil">Aciliyet : </span>
+        @Html.DropDownListFor(x => x.Aciliyetler.AcilId, (List<SelectListItem>)ViewBag.aciliyetler, new { @class = "form-control", aria_describedby = "basic-addon1" })
+    </div><br />
+    <input type="file" multiple="multiple" name="Dosya1" id="dosya" accept="*" /><br />
+    <div class="input-group">
+
+        <input type="submit" value="Ekle" class="btn btn-primary" />
+    </div>
+    <br />
+    <div class="input-group">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">@ViewBag.Result</div>
+        }
+    </div>}
+
+

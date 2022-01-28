@@ -1,0 +1,49 @@
+﻿@using DXTreelist0904.Models
+@model AdminTalepler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Yanıt Düzenle</h4>
+        </div>
+
+        <div class="modal-body">
+
+            @using (Html.BeginForm())
+            {
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Yanıtınız : </span>
+                    @Html.TextBoxFor(x => x.IsTanim, new { @class = "form-control", placeholder = "Soyadınız", aria_describedby = "basic-addon1" })
+                </div>
+                <br />
+                <div class="input-group">
+                    <input type="submit" value="Yanıt Güncelle" class="btn btn-default" />
+                </div>
+
+                <br />
+                <div class="input-group">
+                    @if (ViewBag.Result != null)
+                    {
+                        <div class="alert alert-@ViewBag.Status" role="alert">@ViewBag.Result</div>
+                    }
+                </div>
+
+            }
+        </div>
+
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+
+    </div>
+
+</div>

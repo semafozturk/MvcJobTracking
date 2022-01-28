@@ -1,0 +1,91 @@
+﻿@model DXTreelist0904.Models.AdminTalepler
+@{
+    ViewBag.Title = "Duzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Talep Duzenle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.TalepId)
+
+
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.IsDurumu)
+            @Html.HiddenFor(model => model.TalepTarihi)
+            @* @Html.LabelFor(model => model.TalepTarihi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                <div style="margin-left:50px;float:right;padding:10px;border:1px solid gray;border-radius:5px;"> <b>Talep Tarihi :  </b> <span style="font-family:'Times New Roman', Times, serif;font-size:13px;">@(Model.TalepTarihi.ToString())</span></div>
+                @*@Html.ValidationMessageFor(model => model.TalepTarihi, "", new { @class = "text-danger" })*@
+            </div>
+        </div><br />
+
+
+        <div class="input-group">
+            <span class="input-group-addon" id="ddlKat">Kategori : </span>
+            @Html.DropDownListFor(model => model.Kategoriler.kategoriId, (List<SelectListItem>)ViewBag.kategoriler2, new { @class = "form-control", aria_describedby = "basic-addon1" })
+        </div>
+    <br />
+        <div class="input-group">
+            <span class="input-group-addon" id="txtSifre">Başlık : </span>
+            @Html.TextBoxFor(model => model.Baslik, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+        </div>
+        
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.kategoriler.kategoriAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.kategoriler.kategoriId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control", aria_describedby = "basic-addon1" })
+                    @Html.ValidationMessageFor(model => model.TalepTarihi, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+    </div><br />
+        <div class="input-group">
+            <span class="input-group-addon" id="txtSifre">İş Tanım : </span>
+            @Html.TextAreaFor(model => model.IsTanim, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.IsTanim, "", new { @class = "text-danger" })
+        </div><br />
+
+
+        <div class="input-group">
+            <span class="input-group-addon" id="ddlAcil">Aciliyet : </span>
+            @Html.DropDownListFor(model => model.Aciliyetler.AcilId, (List<SelectListItem>)ViewBag.aciliyetler2, new { @class = "form-control", aria_describedby = "basic-addon1" })
+        </div><br />
+
+        @*<div>
+            <img src="@Url.Content(dosya.DosyaYolu)"/>
+        </div>*@
+            
+        <div class="form-group">
+            <div class="col-md-12">
+                <div style="margin-left:50px;float:right;padding:10px;border:1px solid gray;border-radius:5px;"> <b>İş Durumu :  </b> <span style="font-family:'Times New Roman', Times, serif;font-size:13px;">@("% " + Model.IsYuzde.ToString()+",  "+Model.IsDurumu)</span></div>
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.IsDurumu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               @(Model.IsDurumu)
+                @Html.ValidationMessageFor(model => model.IsDurumu, "", new { @class = "text-danger" })
+            </div>*@
+        @*</div>*@<br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+
+}
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58178510072142a3be34cddbbf6dd998" Name="Diagram1">
+        <EntityTypeShape EntityType="KurumsalIsTakipModel.Aciliyetler" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KurumsalIsTakipModel.Adminler" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KurumsalIsTakipModel.AdminTalepler" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KurumsalIsTakipModel.Dosyalar" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KurumsalIsTakipModel.Kategoriler" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KurumsalIsTakipModel.TalepDetaylar" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KurumsalIsTakipModel.FK_AdminTalepler_Aciliyetler" ManuallyRouted="false" />
+        <AssociationConnector Association="KurumsalIsTakipModel.FK_AdminTalepler_Adminler" ManuallyRouted="false" />
+        <AssociationConnector Association="KurumsalIsTakipModel.FK_TalepDetaylar_Adminler" ManuallyRouted="false" />
+        <AssociationConnector Association="KurumsalIsTakipModel.FK_AdminTalepler_Kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="KurumsalIsTakipModel.FK_Dosyalar_AdminTalepler" ManuallyRouted="false" />
+        <AssociationConnector Association="KurumsalIsTakipModel.FK_TalepDetaylar_AdminTalepler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

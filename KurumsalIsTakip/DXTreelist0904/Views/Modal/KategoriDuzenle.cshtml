@@ -1,0 +1,44 @@
+﻿@using DXTreelist0904.Models
+@model Kategoriler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Kategori Düzenle</h4>
+        </div>
+@using (Html.BeginForm())
+{
+        <div class="modal-body">
+
+         
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.kategoriId)
+
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Kategori Tanımı : </span>
+                    @Html.TextBoxFor(x => x.kategoriAdi, new { @class = "form-control", placeholder = "Adınız", aria_describedby = "basic-addon1" })
+                </div>
+                <br />
+            </div>
+         
+        </div>
+
+
+        <div class="modal-footer">
+            <input type="submit" value="Güncelle" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+         }
+    </div>
+
+</div>

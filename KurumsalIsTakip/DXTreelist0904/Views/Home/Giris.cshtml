@@ -1,0 +1,46 @@
+﻿@model DXTreelist0904.Models.Adminler
+
+@{
+    ViewBag.Title = "Giris";
+}
+
+ 
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div style="margin-left:302px;"><h2><span class="glyphicon glyphicon-log-in" style="font-size:25px;"></span>&nbsp;Giriş Yap</h2></div>
+    if (ViewBag.Durum != null && ViewBag.Alert != null)
+    {
+        <div class="alert alert-@ViewBag.Alert" role="alert">@ViewBag.Durum</div>
+    }
+
+        <hr />    <div class="form-horizontal col-md-5" style="margin-left:300px;padding:10px;margin-top:10px;border:1px solid #ddd;border-radius:5px;">
+        <table cellpadding="10" style="margin-left:35px;">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <tr>
+                <td style="height:50px;line-height:50px;width:100px;text-align:center;">Kullanıcı Adı :</td>
+                <td>
+                    @Html.TextBoxFor(model => model.AdminKAdi, new { @style = "width:250px;height:30px;border-radius:3px;" })
+                    @Html.ValidationMessageFor(model => model.AdminKAdi, "", new { @class = "text-danger" })
+
+                </td>
+            </tr>
+
+            <tr>
+                <td style="height:50px;line-height:50px;text-align:center;">Şifre :</td>
+                <td>
+                    @Html.PasswordFor(model => model.AdminSifre, new { @style = "width:250px;height:30px;border-radius:3px;" })
+                    @Html.ValidationMessageFor(model => model.AdminSifre, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;height:50px;">
+                    &nbsp;&nbsp;&nbsp; <input type="submit" value="Giriş Yap" class="btn btn-default" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+}

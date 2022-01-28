@@ -1,0 +1,85 @@
+﻿@using DXTreelist0904.Models
+@model Adminler
+@{
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Admin Ekle</h4>
+        </div>
+@using (Html.BeginForm("AdminEkle", "Modal", FormMethod.Post, new { id = "adminEkle" }))
+            {
+        <div class="modal-body">
+            <div class="input-group">
+                @if (ViewBag.Result != null)
+                {
+                    <div class="alert alert-@ViewBag.Status" role="alert">@ViewBag.Result</div>
+                }
+            </div>
+
+           
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Ad Soyad</span>
+                    @Html.TextBoxFor(x => x.AdminAdSoyad, new { @class = "form-control", placeholder = "Adı Soyadı", aria_describedby = "basic-addon1" })
+                    @Html.ValidationMessageFor(x => x.AdminAdSoyad, "", new { @class = "text-danger" })
+                </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Kullanıcı Adı </span>
+                        @Html.TextBoxFor(x => x.AdminKAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı", aria_describedby = "basic-addon1" })
+                        @Html.ValidationMessageFor(x => x.AdminKAdi, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Şifre </span>
+                        @Html.TextBoxFor(x => x.AdminSifre, new { @class = "form-control", placeholder = "Şifresi", aria_describedby = "basic-addon1" })
+                        @Html.ValidationMessageFor(x => x.AdminSifre, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Görev</span>
+                        @Html.TextBoxFor(x => x.AdminGorev, new { @class = "form-control", placeholder = "Görevi", aria_describedby = "basic-addon1" })
+                        @Html.ValidationMessageFor(x => x.AdminGorev, "", new { @class = "text-danger" })
+                    </div><br />
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Bölüm</span>
+                        @Html.TextBoxFor(x => x.AdminBolum, new { @class = "form-control", placeholder = "Bölümü", aria_describedby = "basic-addon1" })
+                        @Html.ValidationMessageFor(x => x.AdminBolum, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span style="padding:10px;border:1px solid #bbb;border-radius:3px;">
+                            <span class="label label-default" style="font-size:13px;">  Yetki </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.RadioButtonFor(x => x.Yetki, 0) Kullanıcı &nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.RadioButtonFor(x => x.Yetki, 1) Admin&nbsp;&nbsp;
+                        </span>
+                    </div>
+                    <br />
+                    
+                      
+                   
+
+          
+        </div>
+
+
+        <div class="modal-footer">
+           
+                <input type="submit" value="Ekle" class="btn btn-default" onclick="return FormGonder('adminEkle', '/AdminEkle');"/>
+            
+            
+           
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+            }
+    </div>
+
+</div>

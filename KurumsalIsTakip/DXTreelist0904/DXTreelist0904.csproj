@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27C7D779-FB48-40EA-88BF-8CEB393F6A02}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DXTreelist0904</RootNamespace>
+    <AssemblyName>DXTreelist0904</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <UpgradeBackupLocation />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Export, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Mvc5.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxTreeList.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\gridmvc.datepicker.css" />
+    <Content Include="Content\gridmvc.datepicker.min.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="css\scrolling-nav.css" />
+    <Content Include="css\Style.css" />
+    <Content Include="Dosyalar\0201803091245.jpg" />
+    <Content Include="Dosyalar\0201803102019.jpg" />
+    <Content Include="Dosyalar\0201803102028.jpg" />
+    <Content Include="Dosyalar\0201803102032.jpg" />
+    <Content Include="Dosyalar\1025_2018_03_10_23%3b23.jpg" />
+    <Content Include="Dosyalar\1037_2018_03_16_09%3b07images.jpg" />
+    <Content Include="Dosyalar\1037_2018_03_16_09%3b07IMG_5112.JPG" />
+    <Content Include="Dosyalar\1047_2018_03_16_11%3b06three-flower-border-7829174.jpg" />
+    <Content Include="Dosyalar\1048_2018_03_16_11%3b06three-flower-border-7829174.jpg" />
+    <Content Include="Dosyalar\1050_2018_03_16_11%3b21tanismacayilogo.jpg" />
+    <Content Include="Dosyalar\1052_2018_03_16_11%3b42three-flower-border-7829174.jpg" />
+    <Content Include="Dosyalar\1053_2018_03_16_11%3b43three-flower-border-7829174.jpg" />
+    <Content Include="Dosyalar\1054_2018_03_16_11%3b50three-flower-border-7829174.jpg" />
+    <Content Include="Dosyalar\1055_2018_03_16_16%3b32indir.jpg" />
+    <Content Include="Dosyalar\1056_2018_03_19_09%3b36posterler-arka-plan.jpg" />
+    <Content Include="Dosyalar\1059_2018_03_22_10%3b58Ekran Alıntısı.PNG" />
+    <Content Include="Dosyalar\1060_2018_03_27_09%3b01Ekran Alıntısı.PNG" />
+    <Content Include="Dosyalar\1061_2018_03_28_16%3b1823279626_136689123651002_3714385574115672064_n.jpg" />
+    <Content Include="Dosyalar\1062_2018_03_28_16%3b20Ekran Alıntısı.PNG" />
+    <Content Include="Dosyalar\1063_2018_03_28_16%3b21adasas.PNG" />
+    <Content Include="Dosyalar\1063_2018_03_28_16%3b21Ekran Alıntısı.PNG" />
+    <Content Include="Dosyalar\1064_2018_03_28_16%3b3417458053_1137070243085466_623417712668610471_n.jpg" />
+    <Content Include="Dosyalar\1064_2018_03_28_16%3b342015-fnf-auctioned-off-1.jpg" />
+    <Content Include="Dosyalar\1065_2018_03_28_16%3b3623279626_136689123651002_3714385574115672064_n.jpg" />
+    <Content Include="Dosyalar\2015-fnf-auctioned-off-1201803080635.jpg" />
+    <Content Include="Dosyalar\25_2018_03_10_23%3b38.JPG" />
+    <Content Include="Dosyalar\26201803102036.PNG" />
+    <Content Include="Dosyalar\26_2018_03_12_10%3b25.JPG" />
+    <Content Include="Dosyalar\27_2018_03_10_20%3b40.jpg" />
+    <Content Include="Dosyalar\27_2018_03_12_13%3b40.PNG" />
+    <Content Include="Dosyalar\28_2018_03_10_20_42.jpg" />
+    <Content Include="Dosyalar\31_2018_03_12_14%3b45aaasa.jpg" />
+    <Content Include="Dosyalar\31_2018_03_12_14%3b46IMG_3936.JPG" />
+    <Content Include="Dosyalar\32_2018_03_13_10%3b53C4OP3XBW8AE6GL-.jpg" />
+    <Content Include="Dosyalar\33_2018_03_13_14%3b16Ekran Alıntısı.PNG" />
+    <Content Include="Dosyalar\34_2018_03_13_14%3b5717458053_1137070243085466_623417712668610471_n.jpg" />
+    <Content Include="Dosyalar\35_2018_03_13_14%3b5917458053_1137070243085466_623417712668610471_n.jpg" />
+    <Content Include="Dosyalar\36_2018_03_14_16%3b13831820120227104656211_d - Kopya.jpg" />
+    <Content Include="Dosyalar\37_2018_03_14_18%3b06seyh-samil-basayev.jpg" />
+    <Content Include="Dosyalar\4_2018_03_10_23%3b25.jpg" />
+    <Content Include="Dosyalar\aaasa201803090920.jpg" />
+    <Content Include="Dosyalar\Cgmj6iAWgAQC8xP201803080636.jpg" />
+    <Content Include="Dosyalar\IMG_5300201803081839.JPG" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\harmonyerp.png" />
+    <Content Include="images\img1365966_828277.jpg" />
+    <Content Include="images\img5920715_396911.jpg" />
+    <Content Include="images\kurumsal.ico" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo2.png" />
+    <Content Include="Models\IsTakip.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsTakip.edmx</DependentUpon>
+      <LastGenOutput>IsTakip.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\IsTakip.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsTakip.edmx</DependentUpon>
+      <LastGenOutput>IsTakip.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\ace.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\ext-language_tools.js" />
+    <Content Include="Scripts\gridmvc.customwidgets.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.lang.tr.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Dosyalar\1038_2018_03_16_09%3b092017-2018 GÜZ İNGİLİZCE ÖDEVİ.docx" />
+    <Content Include="Dosyalar\1039_2018_03_16_09%3b11kudusTL.pdf" />
+    <Content Include="Dosyalar\1041_2018_03_16_09%3b28kudusTL.pdf" />
+    <Content Include="Dosyalar\1042_2018_03_16_09%3b29kudusTL.pdf" />
+    <Content Include="Dosyalar\1043_2018_03_16_09%3b38kudusTL.pdf" />
+    <Content Include="Dosyalar\1044_2018_03_16_10%3b17Sakarya_Adapazarı_basvuru_listesi_05.12.17_63047.xlsx" />
+    <Content Include="Dosyalar\1045_2018_03_16_10%3b33AdapazarıLiseOgr.docx" />
+    <Content Include="Dosyalar\1046_2018_03_16_10%3b38siyerinebilistesi.xlsx" />
+    <Content Include="Dosyalar\1049_2018_03_16_11%3b16divanGundem.docx" />
+    <Content Include="Dosyalar\1050_2018_03_16_11%3b21subatayi2017.xlsx" />
+    <Content Include="Dosyalar\1052_2018_03_16_11%3b42sehitler.docx" />
+    <Content Include="Dosyalar\1052_2018_03_16_11%3b42siyerinebiizindilekcesi.pdf" />
+    <Content Include="Dosyalar\1052_2018_03_16_11%3b42siyerinebilistesi.xlsx" />
+    <Content Include="Dosyalar\1053_2018_03_16_11%3b42siyerinebiizindilekcesi.pdf" />
+    <Content Include="Dosyalar\1053_2018_03_16_11%3b43siyerinebilistesi.xlsx" />
+    <Content Include="Dosyalar\1054_2018_03_16_11%3b50sehitler.docx" />
+    <Content Include="Dosyalar\1055_2018_03_16_16%3b32liselerPlanlama.docx" />
+    <Content Include="Dosyalar\1056_2018_03_19_09%3b36divanGundem.docx" />
+    <Content Include="Dosyalar\1056_2018_03_19_09%3b36kasımfaaliyetraporu.docx" />
+    <Content Include="Dosyalar\1056_2018_03_19_09%3b36siyerinebilistesi.xlsx" />
+    <Content Include="Dosyalar\1060_2018_03_27_09%3b01Staj.docx" />
+    <Content Include="Dosyalar\1062_2018_03_28_16%3b20icerik.docx" />
+    <Content Include="Dosyalar\1062_2018_03_28_16%3b20Staj.docx" />
+    <Content Include="Dosyalar\1063_2018_03_28_16%3b21icerik.docx" />
+    <Content Include="Dosyalar\1063_2018_03_28_16%3b21kudusTL.pdf" />
+    <Content Include="Dosyalar\1063_2018_03_28_16%3b21Staj.docx" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <EntityDeploy Include="Models\IsTakip.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsTakip.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\IsTakip.edmx.diagram">
+      <DependentUpon>IsTakip.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.3.0.debug.js" />
+    <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="packages.config" />
+    <Content Include="Grid.mvc.readme" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\modal.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Home\_TreeListPartial.cshtml" />
+    <Content Include="Views\Admin\Aciliyetler.cshtml" />
+    <Content Include="Views\Admin\Adminler.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Kategoriler.cshtml" />
+    <Content Include="Views\Admin\ResimGoster.cshtml" />
+    <Content Include="Views\Admin\TalepGoster.cshtml" />
+    <Content Include="Views\Admin\TalepSil.cshtml" />
+    <Content Include="Views\Home\Giris.cshtml" />
+    <Content Include="Views\Kullanici\Duzenle.cshtml" />
+    <Content Include="Views\Kullanici\Index.cshtml" />
+    <Content Include="Views\Kullanici\Sil.cshtml" />
+    <Content Include="Views\Kullanici\TalepGoster.cshtml" />
+    <Content Include="Views\Kullanici\Yeni.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Modal\AdminEkle.cshtml" />
+    <Content Include="Views\Modal\AdminDuzenle.cshtml" />
+    <Content Include="Views\Modal\Bilgilerim.cshtml" />
+    <Content Include="Views\Modal\KategoriEkle.cshtml" />
+    <Content Include="Views\Modal\AciliyetEkle.cshtml" />
+    <Content Include="Views\Modal\AdminSil.cshtml" />
+    <Content Include="Views\Modal\SifreDegistir.cshtml" />
+    <Content Include="Views\Kullanici\_KullaniciPartial.cshtml" />
+    <Content Include="Views\Admin\_TreeListPartial.cshtml" />
+    <Content Include="Views\Modal\AciliyetSil.cshtml" />
+    <Content Include="Views\Modal\YanitSil.cshtml" />
+    <Content Include="Views\Modal\YanitDuzenle.cshtml" />
+    <Content Include="Views\Modal\KategoriDuzenle.cshtml" />
+    <Content Include="Views\Modal\KategoriSil.cshtml" />
+    <Content Include="Views\Modal\AciliyetDuzenle.cshtml" />
+    <Content Include="Views\Kullanici\Taleplerim.cshtml" />
+    <Content Include="Views\Admin\YeniYanit.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="Filters\AuthFilter.cs" />
+    <Compile Include="Filters\AuthFilterYetki.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aciliyetler.cs">
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adminler.cs">
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminTalepler.cs">
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dosyalar.cs">
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsTakip.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsTakip.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsTakip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsTakip.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsTakip.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Kategoriler.cs">
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TalepDetaylar.cs">
+      <DependentUpon>IsTakip.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53884</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53884/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,50 @@
+﻿@using DXTreelist0904.Models
+@model AdminTalepler
+@{  
+    Layout = null;
+}
+
+
+
+<div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ortala">Yanıt Sil</h4>
+        </div>
+
+        <div class="modal-body">
+            @if (ViewBag.acilSonuc != null)
+            {
+                <br />
+                <div class="alert alert-@ViewBag.acilDurum" role="alert">@Html.Raw(ViewBag.acilSonuc)</div>
+            }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <h4>Aşağıdaki yanıtınızı silmek istediğinize emin misiniz?</h4>
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Yanıt İçeriği :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IsTanim)
+                        </dd>
+
+                    </dl>
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <input type="submit" value="Sil" class="btn btn-danger" />
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            }
+        </div>
+
+    </div>

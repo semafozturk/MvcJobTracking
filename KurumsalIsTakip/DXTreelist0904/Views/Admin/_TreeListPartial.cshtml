@@ -1,0 +1,201 @@
+﻿@Html.DevExpress().TreeList(settings =>
+{
+    Layout = null;
+    settings.Name = "treeList";
+    settings.CallbackRouteValues = new { Controller = "Admin", Action = "TreeListPartial" };
+    settings.KeyFieldName = "TalepId";
+    settings.ParentFieldName = "yanitId";
+    //settings.Styles.Header.Font.Bold = true;
+    settings.Width = Unit.Percentage(100);
+    settings.Images.CollapsedButton.Url = "~/images/rightArrow.png";
+    settings.Images.CollapsedButton.Height = 15;
+    settings.Images.ExpandedButton.Url = "~/images/downArrow.png";
+    settings.Images.ExpandedButton.Height = 15;
+    settings.Styles.Node.BackColor = System.Drawing.Color.FromArgb(0xeeeeee);
+    settings.Styles.AlternatingNode.BackColor = System.Drawing.Color.White;
+    settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.NextColumn;
+    settings.SettingsBehavior.ExpandCollapseAction = TreeListExpandCollapseAction.NodeDblClick;
+    settings.SettingsBehavior.ExpandNodesOnFiltering = true;
+    settings.SettingsBehavior.AllowFocusedNode = true;
+    // satırlardaki içeriğin tamamını gösteriyor
+    //settings.Styles.Cell.Wrap = DefaultBoolean.True;
+
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "TalepId";
+        col.Caption = "No";
+        col.Width = 50;
+    });
+    settings.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+    settings.SettingsPager.PageSize = 16;
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "TalepTarihi";
+        col.PropertiesEdit.DisplayFormatString = "dd.MM.yy hh:mm";
+        // col.PropertiesEdit.DisplayFormatString = "{0:D}";
+        col.Width = 100;
+        col.SortIndex = 2;
+        col.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+    });
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "Baslik";
+        col.Caption = "Başlık";
+        col.Width = 100;
+    });
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "IsTanim";
+        col.SetDataCellTemplateContent(c =>
+        {
+
+            ViewContext.Writer.Write(
+         Html.ActionLink(DataBinder.Eval(c.DataItem, "IsTanim").ToString(), "../Admin/TalepGoster", new { talepID = DataBinder.Eval(c.DataItem, "talepID") }, new { @style = "color:#007f7f;" }));
+        });
+
+        col.Width = 370;
+        col.Caption = "İş Tanımı";
+    });
+
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "Kategoriler.kategoriAdi";
+        col.Caption = "Kategori";
+        col.Name = "Kategori";
+        col.Width = 80;
+        col.SortIndex = 1;
+        col.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+    });
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "Aciliyetler.AciliyetTanim";
+        col.Caption = "Aciliyeti";
+        col.Name = "Aciliyet";
+        col.Width = 80;
+        col.SortIndex = 0;
+        col.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+    }); settings.Columns.Add(col =>
+    {
+        col.FieldName = "TalepDurumu";
+        col.Caption = "Talep Durumu";
+        col.Visible = false;
+        // col.SettingsHeaderFilter.Mode = GridHeaderFilterMode.CheckedList;
+    });
+    settings.Columns.Add("IsDurumu").Width = 90;
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "IsYuzde";
+        col.Caption = "%";
+        col.Width = 30;
+    });
+    settings.Columns.Add(col =>
+    {
+        col.FieldName = "Adminler.AdminAdSoyad";
+        col.Caption = "Kullanıcı";
+        col.Name = "Admin";
+        //col.SettingsHeaderFilter.ListBoxSearchUISettings.Visibility = DevExpress.Web.GridHeaderFilterListBoxSearchUIVisibility.Visible;
+        col.AllowHeaderFilter = DevExpress.Utils.DefaultBoolean.True;
+        col.SettingsHeaderFilter.Mode = GridHeaderFilterMode.CheckedList;
+
+    });
+
+    settings.Columns.Add(col =>
+    {
+        col.Caption = " ";
+        col.SetDataCellTemplateContent(tc =>
+        {
+            ViewContext.Writer.Write(
+            Html.ActionLink(" ", "../Admin/Index","", new {@style="height:21px;background-color:transparent;border:none;", @class = "btn btn-info btn-xs" }) + "&nbsp;&nbsp;");
+
+        });
+        col.Width = 0;
+    });
+
+    settings.Settings.ShowHeaderFilterButton = true;
+    settings.SettingsPopup.HeaderFilter.SettingsAdaptivity.MinHeight = 350;
+
+    foreach (TreeListDataColumn column in settings.Columns)
+        column.SettingsHeaderFilter.Mode = GridHeaderFilterMode.CheckedList;
+
+
+
+    settings.HtmlRowPrepared = (s, e) =>
+    {
+        if (Object.Equals(e.GetValue("acilId"), 3))
+        {
+            e.Row.ForeColor = System.Drawing.Color.FromArgb(0x791101);
+        }
+        else if (Object.Equals(e.GetValue("acilId"), 2))
+        {
+            e.Row.ForeColor = System.Drawing.Color.FromArgb(0xa26400);
+        }
+        else if (Object.Equals(e.GetValue("acilId"), 1))
+        {
+            e.Row.ForeColor = System.Drawing.Color.FromArgb(0x033000);
+        }
+        if (Object.Equals(e.GetValue("TalepDurumu"), "Yanıt"))
+        {
+            e.Row.BackColor = System.Drawing.Color.White;
+            e.Row.ForeColor = System.Drawing.Color.Gray;
+            e.Row.Font.Italic = true;
+        }
+    };
+    settings.HeaderFilterFillItems += HeaderFilterFillItems;
+}).Bind(Model).GetHtml()
+
+
+@functions {
+    void HeaderFilterFillItems(object s, ASPxTreeListHeaderFilterEventArgs e)
+    {
+        if (e.Column.Name == "Admin")
+        {
+            DXTreelist0904.Models.KurumsalIsTakipEntities db = new DXTreelist0904.Models.KurumsalIsTakipEntities();
+            var admin = db.Adminler.ToList();
+            foreach (var ad in admin)
+            {
+                e.AddValue(ad.AdminAdSoyad, ad.AdminAdSoyad);
+            }
+
+        }
+        if (e.Column.Name == "Aciliyet")
+        {
+            DXTreelist0904.Models.KurumsalIsTakipEntities db = new DXTreelist0904.Models.KurumsalIsTakipEntities();
+            var acil = db.Aciliyetler.ToList();
+            foreach (var acl in acil)
+            {
+                e.AddValue(acl.AciliyetTanim, acl.AciliyetTanim);
+            }
+
+        }
+
+        if (e.Column.Name == "Kategori")
+        {
+            DXTreelist0904.Models.KurumsalIsTakipEntities db = new DXTreelist0904.Models.KurumsalIsTakipEntities();
+            var kategori = db.Kategoriler.ToList();
+            foreach (var kat in kategori)
+            {
+                e.AddValue(kat.kategoriAdi, kat.kategoriAdi);
+            }
+
+        }
+
+        else
+            return;
+        if (e.Column.Name != "Admin" & e.Column.Name != "Kategori")
+        {
+            decimal max = 0;
+            decimal value;
+            for (int i = 0; i < e.Values.Count; i++)
+            {
+                if (!decimal.TryParse(e.Values[i].Value, out value))
+                    continue;
+                if (value > max)
+                    max = value;
+            }
+            e.Values.Clear();
+            if (e.Column.SettingsHeaderFilter.Mode == GridHeaderFilterMode.CheckedList)
+                e.AddShowAll();
+        }
+
+    }
+} 

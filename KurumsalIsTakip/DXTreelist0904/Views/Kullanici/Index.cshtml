@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="BaslikCerceve">
+    <div style="float:left;">
+        @if (Session["kullanici"] != null)
+        {
+
+            <center><h2>Hoşgeldin @Session["kullanici"]</h2></center>
+
+        }
+    </div>
+    <div style="float:right;">
+        <br />
+        <a href="/Kullanici/Yeni" class="btn btn-info">Yeni Talep Oluştur</a>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<br />
+<img src="~/images/img5920715_396911.jpg" /><br />
+<div id="icerikKutu">
+    <div class="kutu">
+
+        <b>BİZE ULAŞIN</b><br />
+
+        MERKEZ :
+        Sakarya Üniversitesi Teknopark Binası<br /> No: 14 Esentepe Kampüsü Serdivan / SAKARYA
+        <br />Gsm : (0543) 801 71 02
+        <br />Satış Gsm : 0555 615 30 17
+
+        <br /> kurumsal@kurumsalyazilim.com
+
+    </div>
+    <div class="kutu">
+
+        <b>ÜRÜNLERİMİZ</b> <br /><br />
+
+        TEDARİK ZİNCİRİ YÖNETİMİ<br />
+        MUHASEBE ve FİNANS YÖNETİMİ<br />
+        İNSAN KAYNAKLARI YÖNETİMİ<br />
+        MESAJLAŞMA YÖNETİMİ<br />
+        İŞ TAKİP YÖNETİMİ<br />
+
+    </div>
+    <div class="kutu">
+
+        <b>HİZMETLERİMİZ</b><br /><br />
+
+        EĞİTİM<br />
+        YAZILIM GELİŞTİRME<br />
+        PROJE YÖNETİMİ<br />
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+

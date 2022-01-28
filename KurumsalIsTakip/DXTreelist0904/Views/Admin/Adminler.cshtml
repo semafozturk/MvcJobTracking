@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DXTreelist0904.Models.Adminler>
+
+@{
+    ViewBag.Title = "Adminler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Html.RenderAction("AdminEkle", "Modal");
+    //Html.RenderAction("AdminDuzenle", "Modal");
+}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<h2>Adminler</h2>
+
+<p>
+    <a href="#" class="btn btn-info"
+       onclick="openModal($(this), '/Modal/AdminEkle');">Yeni Admin Oluştur</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminKAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminSifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminAdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminGorev)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminBolum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yetki)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminKAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminSifre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminAdSoyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminGorev)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminBolum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yetki)
+        </td>
+        <td>
+            <a href="#" class="btn btn-default" 
+                onclick="openModal($(this), '/Modal/AdminDuzenle?adminID=@item.AdminId');">Düzenle</a>
+            <a href="#" class="btn btn-default"
+               onclick="openModal($(this), '/Modal/AdminSil?adminID=@item.AdminId');">Sil</a>
+
+        </td>
+    </tr>
+}
+</table>
+<br />
+<hr />
+
+@*<script>
+$(document).ready(function(){
+    $("#btnDuzenle2").click(function () {
+        $("#AdminDuzenle").modal("show");
+    });
+});
+</script>*@

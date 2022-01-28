@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DXTreelist0904.Models.Aciliyetler>
+
+@{
+    ViewBag.Title = "Aciliyetler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<h2>Aciliyetler</h2>
+
+<p>
+    <a href="#" class="btn btn-info"
+       onclick="openModal($(this), '/Modal/AciliyetEkle');">Aciliyet Oluştur</a>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AciliyetTanim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AciliyetTanim)
+        </td>
+        <td>
+            <a href="#" class="btn btn-default" onclick="openModal($(this), '/Modal/AciliyetDuzenle?acilID=@item.AcilId');">Düzenle</a> |
+            <a href="#" class="btn btn-default" onclick="openModal($(this), '/Modal/AciliyetSil?acilID=@item.AcilId');">Sil</a>
+
+        </td>
+    </tr>
+}
+
+</table>

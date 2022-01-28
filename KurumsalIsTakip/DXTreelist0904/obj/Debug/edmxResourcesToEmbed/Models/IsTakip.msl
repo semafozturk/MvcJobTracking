@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KurumsalIsTakipModelStoreContainer" CdmEntityContainer="KurumsalIsTakipEntities">
+    <EntitySetMapping Name="Aciliyetler">
+      <EntityTypeMapping TypeName="KurumsalIsTakipModel.Aciliyetler">
+        <MappingFragment StoreEntitySet="Aciliyetler">
+          <ScalarProperty Name="AcilId" ColumnName="AcilId" />
+          <ScalarProperty Name="AciliyetTanim" ColumnName="AciliyetTanim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adminler">
+      <EntityTypeMapping TypeName="KurumsalIsTakipModel.Adminler">
+        <MappingFragment StoreEntitySet="Adminler">
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="AdminKAdi" ColumnName="AdminKAdi" />
+          <ScalarProperty Name="AdminSifre" ColumnName="AdminSifre" />
+          <ScalarProperty Name="AdminAdSoyad" ColumnName="AdminAdSoyad" />
+          <ScalarProperty Name="AdminGorev" ColumnName="AdminGorev" />
+          <ScalarProperty Name="AdminBolum" ColumnName="AdminBolum" />
+          <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminTalepler">
+      <EntityTypeMapping TypeName="KurumsalIsTakipModel.AdminTalepler">
+        <MappingFragment StoreEntitySet="AdminTalepler">
+          <ScalarProperty Name="TalepId" ColumnName="TalepId" />
+          <ScalarProperty Name="yanitId" ColumnName="yanitId" />
+          <ScalarProperty Name="TalepTarihi" ColumnName="TalepTarihi" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="IsTanim" ColumnName="IsTanim" />
+          <ScalarProperty Name="IsYuzde" ColumnName="IsYuzde" />
+          <ScalarProperty Name="TalepDurumu" ColumnName="TalepDurumu" />
+          <ScalarProperty Name="IsDurumu" ColumnName="IsDurumu" />
+          <ScalarProperty Name="IseBaslananTarih" ColumnName="IseBaslananTarih" />
+          <ScalarProperty Name="TahminiBitisTarihi" ColumnName="TahminiBitisTarihi" />
+          <ScalarProperty Name="TerminGunu" ColumnName="TerminGunu" />
+          <ScalarProperty Name="HarcananSure" ColumnName="HarcananSure" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+          <ScalarProperty Name="acilId" ColumnName="acilId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dosyalar">
+      <EntityTypeMapping TypeName="KurumsalIsTakipModel.Dosyalar">
+        <MappingFragment StoreEntitySet="Dosyalar">
+          <ScalarProperty Name="DosyaId" ColumnName="DosyaId" />
+          <ScalarProperty Name="talepId" ColumnName="talepId" />
+          <ScalarProperty Name="DosyaYolu" ColumnName="DosyaYolu" />
+          <ScalarProperty Name="DosyaAdi" ColumnName="DosyaAdi" />
+          <ScalarProperty Name="uzanti" ColumnName="uzanti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoriler">
+      <EntityTypeMapping TypeName="KurumsalIsTakipModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+          <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TalepDetaylar">
+      <EntityTypeMapping TypeName="KurumsalIsTakipModel.TalepDetaylar">
+        <MappingFragment StoreEntitySet="TalepDetaylar">
+          <ScalarProperty Name="tDetayId" ColumnName="tDetayId" />
+          <ScalarProperty Name="DetayTarih" ColumnName="DetayTarih" />
+          <ScalarProperty Name="DetayTanim" ColumnName="DetayTanim" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="talepId" ColumnName="talepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

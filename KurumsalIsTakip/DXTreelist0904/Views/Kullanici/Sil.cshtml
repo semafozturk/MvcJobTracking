@@ -1,0 +1,42 @@
+﻿@model DXTreelist0904.Models.AdminTalepler
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Talep Sil</h2>
+<p>Aşağıdaki talebi silmek istediğinize emin misiniz?</p>
+
+<table>
+    <tr>
+        <td width="120"><b>Üye : </b></td>
+        <td height="50">@(Model.Adminler.AdminAdSoyad)
+    </tr>
+    <tr>
+        <td height="50"><b>İş Kategori : </b></td>
+        <td>@Model.Kategoriler.kategoriAdi</td>
+    </tr>
+    <tr>
+        <td height="50"><b>İş Tanımı : </b></td>
+        <td>@Model.IsTanim</td>
+    </tr>
+    <tr>
+        <td height="50"><b>Aciliyeti : </b></td>
+        <td>@Model.Aciliyetler.AciliyetTanim</td>
+    </tr>
+
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.TalepId)
+    <div class="input-group">
+        <input type="submit" value="Sil" class="btn btn-primary" />
+    </div>
+}
+<br />
+
+
+
+
+

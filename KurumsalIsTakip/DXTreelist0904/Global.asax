@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="DXTreelist0904.MvcApplication" Language="C#" %>

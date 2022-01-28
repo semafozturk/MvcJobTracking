@@ -1,0 +1,21 @@
+@using DXTreelist0904.Models
+@model IEnumerable<AdminTalepler>
+<script type="text/javascript">
+     function TalepDeatay(id, popupElementID) {
+            treeList.PerformCustomDataCallback({ 'id': id, 'popupElementID': popupElementID });
+     }
+ </script>
+                      <div style="float:right;">
+
+                          <br />
+
+                          <a href="/Admin/Adminler" class="btn btn-info">Adminler</a>
+                          <a href="/Admin/Kategoriler" class="btn btn-info">Kategoriler</a>
+                          <a href="/Admin/Aciliyetler" class="btn btn-info">Aciliyetler</a>
+                          <br /><br />
+                      </div>
+
+@Html.Partial("_TreeListPartial", Model)
+
+
+
